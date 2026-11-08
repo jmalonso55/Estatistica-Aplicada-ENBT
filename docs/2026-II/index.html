@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Materiais, apresentações, códigos em R e orientações da disciplina Estatística Aplicada — PPGA/ENBT-JBRJ, 2026-II.">
+  <meta name="theme-color" content="#123e37">
+  <title>Estatística Aplicada — ENBT/JBRJ | 2026-II</title>
+  <style>
+    :root {
+      --ink: #18302c;
+      --muted: #576e67;
+      --forest: #174d43;
+      --forest-dark: #123e37;
+      --soft-green: #eaf1ed;
+      --paper: #f7f8f6;
+      --white: #fff;
+      --border: #dce5df;
+      --focus: #987a29;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.55; }
+    a { color: var(--forest); text-underline-offset: 3px; }
+    a:hover { color: #0a2e26; }
+    a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 3px; }
+    .container { width: min(1080px, calc(100% - 36px)); margin-inline: auto; }
+    .masthead { background: var(--forest-dark); color: white; }
+    .masthead-inner { min-height: 62px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 12px; }
+    .brand { font-weight: 750; font-size: 0.95rem; letter-spacing: .01em; }
+    .masthead a { color: #fff; font-size: .88rem; text-decoration-color: #a8c8bc; }
+    .hero { background: linear-gradient(115deg, #edf3ef 0%, #fafbf9 80%); border-bottom: 1px solid var(--border); }
+    .hero-inner { padding-block: 43px 41px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,1.04fr) minmax(0,.96fr); gap: 34px; align-items: center; }
+    .hero-copy { min-width: 0; }
+    .hero-visual { margin: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 16px 36px rgba(22, 63, 52, .16); }
+    .hero-visual img { display: block; width: 100%; height: 300px; object-fit: cover; object-position: center center; }
+    .hero-visual figcaption { background: #fff; padding: 7px 12px; font-size: .75rem; color: var(--muted); }
+
+    .eyebrow { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; text-transform: uppercase; letter-spacing: .1em; font-size: .76rem; font-weight: 750; color: var(--forest); }
+    .semester { display: inline-block; border-radius: 999px; background: #dce9e2; padding: 4px 11px; letter-spacing: .05em; }
+    h1 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); letter-spacing: -.05em; line-height: 1.1; margin: 19px 0 13px; color: #142e28; }
+    .hero p { color: #3d5750; font-size: clamp(1rem, 1.8vw, 1.16rem); max-width: 760px; margin: 0; }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+    .button { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; padding: 11px 16px; border-radius: 8px; border: 1px solid var(--forest); background: var(--forest); color: #fff; font-size: .92rem; }
+    .button:hover { color: #fff; background: #0b342c; }
+    .button.secondary { background: transparent; color: var(--forest); }
+    .button.secondary:hover { background: var(--soft-green); color: var(--forest-dark); }
+    .sections { padding-block: 40px 68px; }
+    .intro-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+    h2 { font-size: 1.48rem; letter-spacing: -.025em; line-height: 1.24; margin: 0; }
+    h3 { font-size: 1.12rem; letter-spacing: -.01em; margin: 0; }
+    .small, .section-subtitle { font-size: .9rem; color: var(--muted); }
+    .section-subtitle { margin: 5px 0 0; }
+    .cards { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    .card { background: var(--white); border: 1px solid var(--border); border-radius: 13px; padding: 24px; box-shadow: 0 4px 24px rgba(25,52,42,.035); min-width: 0; scroll-margin-top: 18px; }
+    .card.top { border-top: 4px solid #2a6a5b; }
+    .card-head { display: flex; gap: 15px; justify-content: space-between; align-items: flex-start; }
+    .card p { color: var(--muted); margin: 7px 0 17px; font-size: .91rem; }
+    .folder-link { font-size: .83rem; white-space: nowrap; font-weight: 700; text-decoration: none; padding-top: 4px; }
+    .folder-link:hover { text-decoration: underline; }
+    .file-list { margin: 0; padding: 0; list-style: none; }
+    .file-list li { border-top: 1px solid #edf0ed; padding: 10px 0; display: flex; align-items: center; gap: 10px; justify-content: space-between; min-width: 0; }
+    .file-list li a { font-size: .9rem; overflow-wrap: anywhere; font-weight: 600; }
+    .file-type { font-size: .68rem; font-weight: 750; color: #476658; background: #edf3ee; border-radius: 5px; padding: 3px 6px; white-space: nowrap; letter-spacing: .03em; }
+    .empty { color: #667b73; font-size: .85rem; border-top: 1px solid #edf0ed; padding-top: 12px; }
+    .notice { margin-top: 22px; padding: 20px 22px; background: #f0f4ef; border-left: 4px solid #719483; border-radius: 0 9px 9px 0; }
+    .notice h2 { font-size: 1rem; margin-bottom: 7px; }
+    .notice p { font-size: .91rem; margin: 0; color: #41594f; }
+    .extras { margin-top: 27px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .info { background: white; border: 1px solid var(--border); border-radius: 13px; padding: 22px 24px; }
+    .info h2 { font-size: 1.2rem; }
+    .info p { margin: 10px 0 0; font-size: .92rem; color: var(--muted); }
+    .info ol { padding-left: 20px; margin: 11px 0 0; }
+    .info li { font-size: .87rem; margin-bottom: 5px; }
+    footer { border-top: 1px solid var(--border); background: #eef3ef; color: #4a6259; padding-block: 22px; font-size: .83rem; }
+    .footer-line { display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; }
+    @media (max-width: 880px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 25px; }
+      .hero-visual img { height: clamp(190px, 36vw, 320px); }
+    }
+    @media (max-width: 740px) {
+      .cards, .extras { grid-template-columns: 1fr; }
+      .hero-inner { padding-block: 36px 32px; }
+      .sections { padding-block: 27px 45px; }
+      .card { padding: 19px; }
+      .card-head { gap: 8px; }
+      .folder-link { white-space: normal; text-align: right; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <span class="brand">ENBT · Programa de Pós-Graduação em Botânica</span>
+      <a href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/tree/main/2026-II" target="_blank" rel="noopener noreferrer">Ver repositório no GitHub ↗</a>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="course-title">
+    <div class="container hero-inner">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>Material da disciplina</span><span class="semester">2026-II</span></div>
+          <h1 id="course-title">Estatística Aplicada</h1>
+          <p>Materiais de aula, apresentações, roteiros em R e orientações da disciplina do Programa de Pós-Graduação em Botânica da Escola Nacional de Botânica Tropical (ENBT/JBRJ).</p>
+          <div class="hero-actions">
+            <a class="button" href="#apresentacoes">Ver apresentações ↓</a>
+            <a class="button secondary" href="#codigos">Acessar códigos em R ↓</a>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <img src="imagens/lago-arboreto.jpg" alt="Espelho-d'água com grandes folhas circulares de plantas aquáticas e uma flor branca, com a vegetação do Jardim Botânico ao fundo." width="1599" height="899" fetchpriority="high">
+          <figcaption>Jardim Botânico do Rio de Janeiro</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <main class="container sections">
+    <div class="intro-row">
+      <div>
+        <h2>Materiais da turma</h2>
+        <p class="section-subtitle">Os arquivos abaixo são listados diretamente a partir do repositório e acompanham suas atualizações.</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <section id="apresentacoes" class="card top" aria-labelledby="apresentacoes-title">
+        <div class="card-head"><h3 id="apresentacoes-title">Apresentações</h3><a class="folder-link" href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/tree/main/2026-II/apresentacoes" target="_blank" rel="noopener noreferrer">Abrir pasta ↗</a></div>
+        <p>Slides utilizados nas aulas, principalmente em PDF.</p>
+        <ul class="file-list" id="lista-apresentacoes" aria-live="polite"><li class="empty">Consultando arquivos publicados…</li></ul>
+      </section>
+
+      <section id="codigos" class="card top" aria-labelledby="codigos-title">
+        <div class="card-head"><h3 id="codigos-title">Códigos e roteiros em R</h3><a class="folder-link" href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/tree/main/2026-II/codigos" target="_blank" rel="noopener noreferrer">Abrir pasta ↗</a></div>
+        <p>Arquivos R Markdown para execução no RStudio e versões HTML para consulta.</p>
+        <ul class="file-list" id="lista-codigos" aria-live="polite"><li class="empty">Consultando arquivos publicados…</li></ul>
+      </section>
+
+      <section id="dados" class="card" aria-labelledby="dados-title">
+        <div class="card-head"><h3 id="dados-title">Dados e documentação</h3><a class="folder-link" href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/tree/main/2026-II/dados" target="_blank" rel="noopener noreferrer">Abrir pasta ↗</a></div>
+        <p>Banco de dados e documentação das variáveis usadas nas análises.</p>
+        <ul class="file-list" id="lista-dados" aria-live="polite"><li class="empty">Consultando arquivos publicados…</li></ul>
+      </section>
+
+      <section id="atividades" class="card" aria-labelledby="atividades-title">
+        <div class="card-head"><h3 id="atividades-title">Atividades e orientações</h3><a class="folder-link" href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/tree/main/2026-II" target="_blank" rel="noopener noreferrer">Orientações da turma ↗</a></div>
+        <p>Instruções da edição 2026-II e materiais complementares das atividades.</p>
+        <ul class="file-list" id="lista-atividades" aria-live="polite"><li class="empty">Consultando arquivos publicados…</li></ul>
+      </section>
+    </div>
+
+    <aside class="notice" aria-labelledby="aviso-title">
+      <h2 id="aviso-title">Atualização e revisão dos materiais</h2>
+      <p>Os conteúdos disponibilizados nesta página poderão ser corrigidos, revisados ou complementados ao longo da disciplina, caso sejam identificados erros, inconsistências ou oportunidades de melhoria. Recomenda-se consultar as versões mais recentes dos arquivos antes de utilizá-los.</p>
+    </aside>
+
+    <div class="extras">
+      <section class="info" aria-labelledby="tema-title">
+        <h2 id="tema-title">Temática da edição 2026-II</h2>
+        <p>A disciplina utiliza dados dendrométricos do censo de 2021–2022 do Arboreto do JBRJ, com foco em 472 indivíduos de <em>Roystonea oleracea</em>, distribuídos em 52 canteiros. As atividades abordam a estrutura dendrométrica das palmeiras-imperiais, suas diferenças entre locais de plantio e alternativas para o monitoramento da população.</p>
+        <p><a href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/blob/main/2026-II/README.md" target="_blank" rel="noopener noreferrer">Conhecer as cinco perguntas de pesquisa e os grupos de trabalho ↗</a></p>
+      </section>
+      <section class="info" aria-labelledby="orientacoes-title">
+        <h2 id="orientacoes-title">Como utilizar os materiais</h2>
+        <ol>
+          <li>Consulte as apresentações correspondentes aos conteúdos das aulas.</li>
+          <li>Abra os arquivos <strong>.Rmd</strong> no RStudio para executar e adaptar os códigos.</li>
+          <li>Utilize o conjunto de dados e o dicionário disponíveis na pasta <strong>dados</strong>.</li>
+          <li>Consulte o README da turma para orientações e questões de pesquisa.</li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-line">
+      <span>Estatística Aplicada · Pós-Graduação em Botânica · ENBT/JBRJ · 2026-II</span>
+      <a href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT" target="_blank" rel="noopener noreferrer">Repositório completo ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    // A listagem é atualizada automaticamente a partir dos arquivos públicos do GitHub.
+    // Se a consulta falhar, os links para as pastas continuam disponíveis.
+    const repo = 'jmalonso55/Estatistica-Aplicada-ENBT';
+    const base = `https://api.github.com/repos/${repo}/contents/2026-II`;
+    const pastas = [
+      {nome: 'apresentacoes', alvo: 'lista-apresentacoes', tipos: ['pdf','pptx','ppt','odp']},
+      {nome: 'codigos', alvo: 'lista-codigos', tipos: ['rmd','r','qmd','html','ipynb']},
+      {nome: 'dados', alvo: 'lista-dados', tipos: ['csv','xlsx','xls','pdf','docx','txt','rds','zip','geojson','gpkg']},
+      {nome: 'atividades', alvo: 'lista-atividades', tipos: ['pdf','md','docx','html','rmd','qmd','txt']}
+    ];
+    const ordenacao = new Intl.Collator('pt-BR', {numeric: true, sensitivity: 'base'});
+
+    function mensagem(lista, texto) {
+      lista.replaceChildren();
+      const li = document.createElement('li');
+      li.className = 'empty';
+      li.textContent = texto;
+      lista.append(li);
+    }
+
+    async function carregarPasta({nome, alvo, tipos}) {
+      const lista = document.getElementById(alvo);
+      try {
+        const response = await fetch(`${base}/${encodeURIComponent(nome)}?ref=main`, {
+          headers: { 'Accept': 'application/vnd.github+json' }
+        });
+        if (response.status === 404) {
+          mensagem(lista, 'Materiais ainda não disponibilizados nesta pasta.');
+          return;
+        }
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const dados = await response.json();
+        if (!Array.isArray(dados)) throw new Error('Resposta inesperada');
+        const arquivos = dados.filter(f => {
+          if (f.type !== 'file' || f.name.startsWith('.')) return false;
+          if (f.name.toLowerCase() === 'readme.md') return false;
+          const ext = f.name.split('.').pop().toLowerCase();
+          return tipos.includes(ext);
+        }).sort((a,b) => ordenacao.compare(a.name,b.name));
+        if (!arquivos.length) {
+          mensagem(lista, 'Nenhum arquivo publicado por enquanto.');
+          return;
+        }
+        lista.replaceChildren();
+        for (const f of arquivos) {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          // Utiliza exclusivamente links de visualização públicos do GitHub.
+          const uri = new URL(f.html_url);
+          if (uri.hostname !== 'github.com') continue;
+          a.href = uri.href;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.textContent = f.name.replace(/_/g, ' ');
+          const tipo = document.createElement('span');
+          tipo.className = 'file-type';
+          tipo.textContent = f.name.split('.').pop().toUpperCase();
+          li.append(a, tipo);
+          lista.append(li);
+        }
+      } catch (e) {
+        mensagem(lista, 'Não foi possível carregar a lista automaticamente. Use “Abrir pasta” para acessar os arquivos no GitHub.');
+      }
+    }
+    for (const pasta of pastas) carregarPasta(pasta);
+  </script>
+</body>
+</html>
