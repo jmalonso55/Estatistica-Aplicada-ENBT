@@ -1,10 +1,14 @@
-# R Markdown scripts
+# Contabilizar arquivos R Markdown como R
 *.Rmd linguist-language=R linguist-detectable=true
 
-# Rendered HTML reports
-analysis/*.html linguist-generated=true
-analysis/**/*.html linguist-generated=true
+# Excluir relatórios HTML gerados pelas análises
+**/codigo/**/*.html linguist-generated=true
 
-# Data files
-data/*.csv linguist-vendored=true
-data/**/*.csv linguist-vendored=true
+# Excluir dados CSV das estatísticas
+**/dados/**/*.csv linguist-detectable=false
+
+# Incluir o HTML do site nas estatísticas
+docs/**/*.html linguist-documentation=false linguist-detectable=true
+
+# Classificar os arquivos do site como documentação
+docs/** linguist-documentation=true
