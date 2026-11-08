@@ -1,40 +1,280 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Materiais das turmas de Estatística Aplicada do Programa de Pós-Graduação em Botânica da ENBT/JBRJ.">
-  <meta name="theme-color" content="#123e37">
-  <title>Estatística Aplicada — ENBT/JBRJ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estatística Aplicada | ENBT — 2026-II</title>
   <style>
-    :root{--ink:#18302c;--forest:#174d43;--dark:#123e37;--muted:#52655f;--border:#dce5df}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#f7f8f6;line-height:1.6}
-    header{background:var(--dark);color:#fff;padding:18px max(22px,calc((100vw - 920px)/2));font-weight:700}
-    main{max-width:920px;margin:0 auto;padding:64px 22px 84px}
-    .eyebrow{color:var(--forest);font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
-    h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:12px 0 15px}
-    p{max-width:690px;color:var(--muted);margin:0 0 34px}
-    h2{font-size:1.3rem;margin:0 0 18px}
-    .card{background:white;padding:25px 27px;border:1px solid var(--border);border-radius:14px;max-width:700px}
-    .card a{display:block;font-weight:700;font-size:1.12rem;color:var(--forest);text-underline-offset:4px}
-    .card p{font-size:.93rem;margin:8px 0 0}
-    footer{padding:24px 22px;border-top:1px solid var(--border);font-size:.86rem;text-align:center;color:var(--muted)}
-    a:focus-visible{outline:3px solid #987a29;outline-offset:4px}
+    :root {
+      --azul: #234c70;
+      --verde: #28786a;
+      --fundo: #f5f7f9;
+      --texto: #263444;
+      --borda: #dce3e9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--azul);
+      color: white;
+      padding: 16px max(5%, calc((100% - 1100px)/2));
+      font-weight: bold;
+    }
+    main { max-width: 1100px; margin: auto; padding: 28px 20px; }
+    .hero {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .intro { padding: 32px; }
+    .intro small { color: var(--verde); font-weight: bold; }
+    h1 { color: var(--azul); font-size: 2.1rem; line-height: 1.2; }
+    h2 { color: var(--azul); }
+    h3 { margin-top: 0; color: var(--azul); }
+    .hero img { width: 100%; height: 100%; object-fit: cover; }
+    a { color: var(--azul); }
+    .botao {
+      display: inline-block;
+      background: var(--azul);
+      color: white;
+      padding: 9px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 5px 5px 5px 0;
+    }
+    .botao:hover { background: var(--verde); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .card, .aviso {
+      background: white;
+      padding: 24px;
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+    }
+    .card ul { padding-left: 20px; }
+    .card li { margin-bottom: 9px; overflow-wrap: anywhere; }
+    .aviso {
+      margin-top: 22px;
+      border-left: 4px solid var(--verde);
+    }
+    .status { color: #687786; font-size: .87rem; }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #687786;
+      font-size: .9rem;
+    }
+    @media(max-width: 750px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .hero img { height: 230px; }
+      .intro { padding: 22px; }
+    }
   </style>
 </head>
 <body>
-  <header>ENBT · Programa de Pós-Graduação em Botânica</header>
-  <main>
-    <div class="eyebrow">Repositório de materiais didáticos</div>
-    <h1>Estatística Aplicada</h1>
-    <p>Materiais de aula, conjuntos de dados, códigos em R e orientações para as turmas da disciplina Estatística Aplicada, do Programa de Pós-Graduação em Botânica da Escola Nacional de Botânica Tropical (ENBT/JBRJ).</p>
-    <h2>Turmas</h2>
-    <section class="card" aria-label="Turma 2026-II">
-      <a href="2026-II/">Turma 2026-II →</a>
-      <p>Acesse as apresentações, os roteiros em R, os dados e as orientações desta edição, dedicada à análise dendrométrica de <em>Roystonea oleracea</em>.</p>
+
+<header>ENBT / JBRJ — Programa de Pós-Graduação em Botânica</header>
+
+<main>
+  <section class="hero">
+    <div class="intro">
+      <small>SEGUNDO SEMESTRE DE 2026</small>
+      <h1>Estatística Aplicada</h1>
+      <p>Materiais didáticos, apresentações, códigos em R,
+      conjuntos de dados e orientações da turma 2026-II.</p>
+      <p>A disciplina utiliza dados das palmeiras-imperiais
+      (<em>Roystonea oleracea</em>) do Arboreto do Jardim Botânico
+      do Rio de Janeiro como base para as atividades.</p>
+      <a class="botao" href="#apresentacoes">Apresentações</a>
+      <a class="botao" href="#codigos">Códigos em R</a>
+    </div>
+    <img src="imagens/lago-arboreto.jpg"
+         alt="Lago do Jardim Botânico do Rio de Janeiro">
+  </section>
+
+  <h2>Materiais da disciplina</h2>
+
+  <div class="grid">
+    <section class="card" id="apresentacoes">
+      <h3>Apresentações</h3>
+      <p>Slides utilizados nas aulas, organizados por conteúdo.</p>
+      <ul id="lista-apresentacoes">
+        <li>Carregando apresentações...</li>
+      </ul>
+      <a href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/tree/main/2026-II/apresentacoes">
+        Acessar pasta de apresentações
+      </a>
     </section>
-  </main>
-  <footer>Estatística Aplicada · ENBT/JBRJ</footer>
+
+    <section class="card" id="codigos">
+      <h3>Códigos e roteiros em R</h3>
+      <p>Scripts, roteiros em R Markdown e resultados das análises.</p>
+      <ul id="lista-codigos">
+        <li>Carregando códigos...</li>
+      </ul>
+      <a href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/tree/main/2026-II/codigos">
+        Acessar pasta de códigos
+      </a>
+    </section>
+
+    <section class="card" id="dados">
+      <h3>Dados</h3>
+      <p>Conjuntos de dados e documentação das variáveis
+      utilizadas nas atividades.</p>
+      <ul id="lista-dados">
+        <li>Carregando dados...</li>
+      </ul>
+      <a href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/tree/main/2026-II/dados">
+        Acessar pasta de dados
+      </a>
+    </section>
+
+    <section class="card" id="atividades">
+      <h3>Atividades e grupos de trabalho</h3>
+      <p>As orientações das atividades e as cinco perguntas
+      de pesquisa estão descritas no README da turma.</p>
+      <a class="botao" href="https://github.com/jmalonso55/Estatistica-Aplicada-ENBT/blob/main/2026-II/README.md">
+        Consultar atividades
+      </a>
+    </section>
+  </div>
+
+  <section class="aviso">
+    <h3>Atualização dos materiais</h3>
+    <p>Os materiais disponibilizados nesta página poderão ser
+    corrigidos, revisados ou complementados ao longo da disciplina,
+    caso sejam identificados erros, inconsistências ou
+    oportunidades de melhoria.</p>
+    <p>Recomenda-se consultar periodicamente o repositório
+    para acessar as versões atualizadas.</p>
+  </section>
+</main>
+
+<footer>
+  Estatística Aplicada — ENBT/JBRJ — 2026-II
+</footer>
+
+<script>
+  const repo = "jmalonso55/Estatistica-Aplicada-ENBT";
+  const raiz = "2026-II/";
+  const api = `https://api.github.com/repos/${repo}/git/trees/main?recursive=1`;
+
+  const secoes = {
+    apresentacoes: {
+      id: "lista-apresentacoes",
+      extensoes: ["pdf", "pptx", "ppt"],
+      pastas: ["apresentacoes"]
+    },
+    codigos: {
+      id: "lista-codigos",
+      extensoes: ["r", "rmd", "qmd", "html"],
+      pastas: ["codigos", "codigo", "scripts"]
+    },
+    dados: {
+      id: "lista-dados",
+      extensoes: ["csv", "xlsx", "pdf", "docx"],
+      pastas: ["dados"]
+    }
+  };
+
+  function normalizar(texto) {
+    return texto.normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  }
+
+  function mostrarArquivos(id, arquivos, mensagem) {
+    const lista = document.getElementById(id);
+    lista.innerHTML = "";
+
+    if (!arquivos.length) {
+      const li = document.createElement("li");
+      li.textContent = mensagem;
+      lista.appendChild(li);
+      return;
+    }
+
+    arquivos.sort((a, b) =>
+      a.path.localeCompare(b.path, "pt-BR", { numeric: true })
+    );
+
+    arquivos.forEach(arquivo => {
+      const nome = arquivo.path.split("/").pop();
+      const li = document.createElement("li");
+      const link = document.createElement("a");
+
+      link.textContent = nome;
+      link.href = `https://github.com/${repo}/blob/main/` +
+        arquivo.path.split("/").map(encodeURIComponent).join("/");
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+
+      li.appendChild(link);
+      lista.appendChild(li);
+    });
+  }
+
+  async function carregarArquivos() {
+    try {
+      const resposta = await fetch(api);
+      if (!resposta.ok) throw new Error("Consulta indisponível");
+
+      const resultado = await resposta.json();
+      if (!Array.isArray(resultado.tree)) {
+        throw new Error("Listagem indisponível");
+      }
+
+      const arquivos = resultado.tree.filter(item =>
+        item.type === "blob" &&
+        item.path.startsWith(raiz) &&
+        !item.path.endsWith("/README.md")
+      );
+
+      Object.values(secoes).forEach(secao => {
+        const encontrados = arquivos.filter(arquivo => {
+          const partes = normalizar(arquivo.path).split("/");
+          const nome = partes[partes.length - 1];
+          const ext = nome.split(".").pop();
+          const pasta = partes.slice(1, -1);
+
+          return secao.extensoes.includes(ext) &&
+            pasta.some(p => secao.pastas.includes(p));
+        });
+
+        mostrarArquivos(
+          secao.id,
+          encontrados,
+          "Nenhum arquivo identificado nesta pasta."
+        );
+      });
+
+    } catch (erro) {
+      Object.values(secoes).forEach(secao => {
+        mostrarArquivos(
+          secao.id,
+          [],
+          "Listagem automática indisponível. Utilize o link da pasta abaixo."
+        );
+      });
+    }
+  }
+
+  carregarArquivos();
+</script>
+
 </body>
 </html>
