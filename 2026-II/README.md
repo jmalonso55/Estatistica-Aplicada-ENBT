@@ -36,7 +36,7 @@ Na questão 5, vocês podem reunir setores ou subdividi-los em trechos menores. 
 2. Quanto as aleias diferem em altura média e DAP médio? O que indicam os testes de hipóteses?
 3. Ao considerar apenas as palmeiras adultas, como mudam as diferenças de altura e DAP entre as aleias?
 4. Uma mesma curva descreve bem a relação altura–DAP nas duas aleias ou os dados sustentam curvas distintas?
-5. Em cada aleia, as diferenças entre direita e esquerda se repetem nos dois trechos? Proponham outra forma de agrupar ou subdividir os setores e avaliem como ela muda a comparação entre as aleias.
+5. Em cada aleia, as diferenças entre direita e esquerda se repetem nos dois trechos?
 
 Ao interpretar os resultados, considerem que cada orientação de plantio ocorre em uma única aleia.
 
