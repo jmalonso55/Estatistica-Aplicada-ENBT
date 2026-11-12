@@ -26,8 +26,8 @@ Na questão 5, vocês podem reunir setores ou subdividi-los em trechos menores. 
 2. Quanto as fileiras adjacentes à rua diferem das internas em altura média e DAP médio? O que indicam os testes de hipóteses?
 3. Ao considerar apenas as palmeiras adultas, como mudam a direção e a magnitude dessas diferenças?
 4. Para um mesmo DAP, a altura prevista pela regressão difere entre as fileiras adjacentes à rua e as internas?
-5. O contraste entre fileiras adjacentes à rua e internas se repete à direita e à esquerda? Com base nesse resultado, proponham uma divisão alternativa aos quatro setores e avaliem se ela descreve melhor a variação de altura e DAP.
-
+5. O contraste entre fileiras adjacentes à rua e internas se repete à direita e à esquerda?
+   
 ### Grupo 2 · Pergunta 2 — Orientação das linhas de plantio
 
 **A orientação das linhas de plantio — SE–NO na Aleia do Chafariz e NE–SO na Aleia da Rua Jardim Botânico — está associada a diferenças na altura, no DAP e na relação entre essas variáveis?**
