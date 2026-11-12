@@ -14,7 +14,7 @@ Caracterizar a estrutura dendrométrica das palmeiras-imperiais do Arboreto do J
 
 ## Perguntas 1 a 3 — Temas dos trabalhos em grupo
 
-Cada grupo investigará a pergunta sorteada com o apoio das cinco questões de seu tema. Na questão 3 de cada grupo, considerem adultas, para fins desta atividade, as palmeiras com **altura superior a 10 m**.
+Cada grupo investigará a pergunta sorteada com o apoio das cinco questões de seu tema. Na questão 3 de cada grupo, considerem adultas, para fins desta atividade, as palmeiras com **altura superior a 10 m e DAP superior a 40 cm**.
 
 Na questão 5, vocês podem reunir setores ou subdividi-los em trechos menores. Apresentem a proposta em um mapa ou tabela, expliquem o critério utilizado e comparem o resultado com a divisão atual. Se a divisão atual for mais adequada, justifiquem sua manutenção.
 
